@@ -623,8 +623,8 @@
 			
 			$\mu_\text{2;MLE} = \dfrac{\sum_{i=1}^n{1\{y_i=2\} x_i}}{{\sum_{i=1}^n}{1\{y_i=2\}}} = \dfrac{10+12}{2} = 11$
 			
-			$\sigma^2_\text{1;MLE} = \dfrac{\sum_{i=1}^{n} 1\{y_i=1\} (x_i - \mu_\text{1;MLE})}{{\sum_{i=1}^n}{1\{y_i=1\}}} =\dfrac{(1-2)^2 + (3-2)^2}{2} = 1$
-			$$\sigma^2_\text{2;MLE} = \dfrac{\sum_{i=1}^{n} 1\{y_i=2\} (x_i - \mu_\text{2;MLE})}{{\sum_{i=1}^n}{1\{y_i=2\}}} =\dfrac{(10-11)^2 + (12-11)^2}{2} = 1$$
+			$\sigma^2_\text{1;MLE} = \dfrac{\sum_{i=1}^{n} 1\{y_i=1\} (x_i - \mu_\text{1;MLE})^2}{{\sum_{i=1}^n}{1\{y_i=1\}}} =\dfrac{(1-2)^2 + (3-2)^2}{2} = 1$
+			$$\sigma^2_\text{2;MLE} = \dfrac{\sum_{i=1}^{n} 1\{y_i=2\} (x_i - \mu_\text{2;MLE})^2}{{\sum_{i=1}^n}{1\{y_i=2\}}} =\dfrac{(10-11)^2 + (12-11)^2}{2} = 1$$
 			
 			\newpage
 			
@@ -1193,9 +1193,9 @@
 		
 	ne putem uita la cele două înălțimi colorate (roșu pentru $0.25 \cdot \mathcal{N}(3;2,1^2)$, albastru pentru $0.75 \cdot \mathcal{N}(3;11,4^2)$) și putem calcula rapoartele: 
 	
-	$P(Z_2 = 1|X_2= 3) = {\color{red}\dfrac{0.25\cdot \mathcal{N}(x_i;2,1^2)}{0.25\cdot \mathcal{N}(x_i;2,1^2) + {\color{blue}0.75\cdot\mathcal{N}(x;11,4^2)}}}$ și
+	$P(Z_2 = 1|X_2= 3) = {\color{red}\dfrac{0.25\cdot \mathcal{N}(3;2,1^2)}{0.25\cdot \mathcal{N}(3;2,1^2) + {\color{blue}0.75\cdot\mathcal{N}(3;11,4^2)}}}$ și
 	
-	 $P(Z_2 = 2|X_2= 3) = {\color{blue}\dfrac{0.75\cdot \mathcal{N}(x_i;11,4^2)}{{\color{red}0.25\cdot \mathcal{N}(x_i;2,1^2)} + 0.75\cdot\mathcal{N}(x;11,4^2)}}$. 
+	 $P(Z_2 = 2|X_2= 3) = {\color{blue}\dfrac{0.75\cdot \mathcal{N}(3;11,4^2)}{{\color{red}0.25\cdot \mathcal{N}(3;2,1^2)} + 0.75\cdot\mathcal{N}(3;11,4^2)}}$. 
 	 
 	 \textbf{Mai mult, dacă ne-ar interesa o clusterizare \textbf{hard} obținută din cea soft (luând maximul dintre $P(Z_2 = 1|X_2=3)$ și $P(Z_2 = 2|X_2=3)$), nu mai e nevoie să calculăm nimic, ci am asigna punctul 3 la clusterul corespunzător înălțimii mai mari, deci clusterului/gaussienei 1: $\color{red}\mathcal{N}(2,1^1)$.}
 	
@@ -1225,7 +1225,7 @@
 		
 		\item Există o \textbf{similaritate între algoritmii k-means și EM/GMM}: vezi varianta de k-means de la ex. 39, unde există valorile $\gamma_{ij} \in \{0,1\}$ (hard...); în algoritmul EM/GMM avem $\gamma_{ij} \in [0,1]$ (soft...)!
 		
-		\item Există o \textbf{echivalență între algoritmii k-means și EM/GMM}: pentru detalii vezi ca idee ex. 54; esența: \textbf{dacă toate varianțele distribuțiilor normale sunt egale cu un $\sigma$ și tind spre 0 ($\sigma^2 \rightarrow 0$), atunci k-means $\equiv$ EM/GMM}; într-un caz oarecum opus, \textbf{când varianțele distribuțiilor normale sunt \textit{relativ} mari, apare un fenomen de \textbf{atracție reciprocă a mediilor}} gaussienelor (aceste medii fiind echivalentul centroizilor din algoritmul k-means), datorită faptului că fiecare instanță aparține cu o anumită probabilitate la fiecare cluster (vezi ex. 15b)
+		\item Există o \textbf{echivalență între algoritmii k-means și EM/GMM}: pentru detalii vezi ca idee ex. 53; esența: \textbf{dacă toate varianțele distribuțiilor normale sunt egale cu un $\sigma$ și tind spre 0 ($\sigma^2 \rightarrow 0$), atunci k-means $\equiv$ EM/GMM}; într-un caz oarecum opus, \textbf{când varianțele distribuțiilor normale sunt \textit{relativ} mari, apare un fenomen de \textbf{atracție reciprocă a mediilor}} gaussienelor (aceste medii fiind echivalentul centroizilor din algoritmul k-means), datorită faptului că fiecare instanță aparține cu o anumită probabilitate la fiecare cluster (vezi ex. 15b)
 		
 		\item Comparativ cu algoritmul k-means, algoritmul EM/GMM este în general mai lent - mișcarea centroizilor poate explora într-o manieră mai fină spațiul (vezi ex. 19).
 		
